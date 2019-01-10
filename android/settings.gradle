@@ -1,0 +1,3 @@
+rootProject.name = 'StockbitTestRN'
+
+include ':app'
