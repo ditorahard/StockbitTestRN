@@ -7,6 +7,7 @@ import styles from './Home.component.style';
 import PropTypes from 'prop-types';
 import MovieCard from '../../Cards/Movie/MovieCard.component.js';
 import NavigationService from '../../../routes/NavigationService.js';
+import Subheader from '../../Subheader/Subheader.component';
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
@@ -78,7 +79,7 @@ export default class HomeScreen extends React.Component {
             </TouchableOpacity>
           </View>
         </Modal>
-
+        <Subheader title="MOVIES" />
   	    <Searchbar 
         query={this.props.searchQuery} 
         onChangeText={this.props.onChangeSearchQuery}
