@@ -19,6 +19,15 @@ export default class HomeScreen extends React.Component {
     };
   }
 
+  shouldComponentUpdate(nextProps, nextState){
+    if(this.props.movies == nextProps.movies){
+      return false;
+    }
+    if(this.state.modalImage == nextState.modalImage){
+      return false;
+    }
+  }
+
   _openModal(image){
     this.setState({
       isModalVisible:true,
