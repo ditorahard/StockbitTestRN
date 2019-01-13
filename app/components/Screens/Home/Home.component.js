@@ -96,9 +96,6 @@ HomeScreen.propTypes = {
   movies: PropTypes.array,
   onChangeSearchQuery: PropTypes.func.isRequired,
   searchQuery: PropTypes.string,
-  closeModal: PropTypes.func.isRequired,
-  openModal: PropTypes.func.isRequired,
-  imageModal: PropTypes.string,
   modal: PropTypes.bool,
   getMovies: PropTypes.func.isRequired
 };

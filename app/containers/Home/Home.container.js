@@ -19,8 +19,6 @@ class Home extends React.Component {
       onChangeSearchQuery={this.searchMovies} 
       searchQuery={this.props.searchQuery}
       getMovies={this.props.getMovies}
-      openModal={this.props.openModal}
-      closeModal={this.props.closeModal}
       />
     );
   }
@@ -30,15 +28,12 @@ class Home extends React.Component {
 const mapStateToProps = (state) => ({
   movies: state.home.movies,
   searchQuery: state.home.searchQuery,
-  imageModal: state.home.imageModal,
 });
 
 const mapDispatchToProps = (dispatch) => {
 	return{
     getMovies: (searchQuery, page) => dispatch(action.getMovies(searchQuery, page)),
     onChangeSearchQuery: () => dispatch(action.onChangeSearchQuery()),
-    openModal: (image) => dispatch(action.openModal(image)),
-    closeModal: () => dispatch(action.closeModal())
 	}
 };
 
