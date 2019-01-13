@@ -19,23 +19,14 @@ export default class HomeScreen extends React.Component {
     };
   }
 
-  shouldComponentUpdate(nextProps, nextState){
-    if(this.props.movies == nextProps.movies){
-      return false;
-    }
-    if(this.state.modalImage == nextState.modalImage){
-      return false;
-    }
-  }
-
-  _openModal(image){
+  openModal(image){
     this.setState({
       isModalVisible:true,
       modalImage:image
     });
   }
 
-  _closeModal = () => {
+  closeModal = () => {
     this.setState({
       isModalVisible:false,
       modalImage: null,
@@ -50,11 +41,11 @@ export default class HomeScreen extends React.Component {
         data={this.props.movies}
         renderItem={({item}) => 
             <MovieCard 
-            id={item.imdbID}
-            title={item.Title} 
+            id={item.imdbID ? item.imdbID : null}
+            title={item.Title ? item.Title : null} 
             subtitle={item.Year} 
             action={() => { NavigationService.navigate('Detail', {idMovie:item.imdbID}); }}
-            actionImage={() => {this._openModal(item.Poster)}} 
+            actionImage={() => {this.openModal(item.Poster)}} 
             image={item.Poster}
             />
         }
@@ -65,7 +56,7 @@ export default class HomeScreen extends React.Component {
     else{
       content = (
         <Text>
-          Silakan ketik minimal 2 karakter judul film
+          Film tidak ditemukan. Silakan cari lagi dengan mengetik minimal 2 huruf.
         </Text>
       );
     }
@@ -83,7 +74,7 @@ export default class HomeScreen extends React.Component {
               source={{uri: this.state.modalImage}}
             />
             
-            <TouchableOpacity onPress={this._closeModal}>
+            <TouchableOpacity onPress={this.closeModal}>
               <Text style={styles.modalText}>Close Modal</Text>
             </TouchableOpacity>
           </View>

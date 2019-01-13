@@ -12,22 +12,6 @@ export function home(state = {}, action) {
         searchQuery : action.payload
       };
     }
-    case 'OPEN_MODAL':{
-      console.warn("action modal open", action.modal, action.payload)
-      return {
-        ...state,
-        imageModal: action.payload,
-        modal:action.modal,
-      };
-    }
-    case 'CLOSE_MODAL':{
-      console.warn("action modal close", action.modal, action.payload)
-      return {
-        ...state,
-        imageModal: null,
-        modal:action.modal, 
-      };
-    }
     default:
       return state;
     }

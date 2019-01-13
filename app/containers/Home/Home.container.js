@@ -7,11 +7,16 @@ import NavigationService from '../../routes/NavigationService';
 
 class Home extends React.Component {
  	
+  searchMovies = (event) => {
+    this.props.onChangeSearchQuery(event); 
+    this.props.getMovies(event,1);
+  }
+  
   render() {
     return (
       <HomeScreen 
       movies={this.props.movies} 
-      onChangeSearchQuery={(event) => {this.props.onChangeSearchQuery(event); this.props.getMovies(event,1);}} 
+      onChangeSearchQuery={this.searchMovies} 
       searchQuery={this.props.searchQuery}
       getMovies={this.props.getMovies}
       openModal={this.props.openModal}

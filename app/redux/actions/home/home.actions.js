@@ -25,19 +25,3 @@ export function getMovies(searchQuery, page){
    		return;
 	}
 }
-
-export function openModal(image){
-	return{
-		type: 'OPEN_MODAL',
-		payload: image,
-		modal: true,
-	}
-}
-
-export function closeModal(){
-	return{
-		type: 'CLOSE_MODAL',
-		payload: null,
-		modal: false,
-	}
-}

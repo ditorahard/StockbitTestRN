@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Image, TouchableOpacity } from 'react-native';
-import { Container, /*Header,*/ Content,  Card, CardItem, Thumbnail, Text, Icon, Button, Left, Body, Right } from 'native-base';
+import { Card, CardItem, Text, Button, Body } from 'native-base';
 import styles from './MovieCard.component.style';
 import PropTypes from 'prop-types';
 
